@@ -97,8 +97,20 @@ final class WPCampus_Gatsby_Global {
 		$disable = get_post_meta( $object['id'], 'wpc_gatsby_disable_build', true );
 		$disable = ! empty( $disable );
 
+		$template = get_post_meta( $object['id'], 'wpc_gatsby_template', true );
+
+		$forms = [];
+		if ( 'form' === $template ) {
+			$post_forms = get_post_meta( $object['id'], 'wpc_gatsby_form', true );
+			if ( ! empty( $post_forms ) && is_array( $post_forms ) ) {
+				$forms = array_map('intval', $post_forms );
+			}
+		}
+
 		return [
-			'disable' => $disable,
+			'disable'  => $disable,
+			'template' => $template,
+			'forms'    => $forms,
 		];
 	}
 }
