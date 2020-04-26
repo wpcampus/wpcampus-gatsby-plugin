@@ -23,6 +23,26 @@ acf_add_local_field_group(
 				'ui_on_text'        => '',
 				'ui_off_text'       => '',
 			],
+			[
+				'key'               => 'field_5ea4ceec272bb',
+				'label'             => 'Template',
+				'name'              => 'wpc_gatsby_template',
+				'type'              => 'select',
+				'instructions'      => 'By default, will use template assigned to post type.',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'choices'           => [
+					'form'    => 'Form',
+					'library' => 'Library',
+				],
+				'default_value'     => [],
+				'allow_null'        => 1,
+				'multiple'          => 0,
+				'ui'                => 1,
+				'ajax'              => 0,
+				'return_format'     => 'value',
+				'placeholder'       => '',
+			],
 		],
 		'location'              => [
 			[
