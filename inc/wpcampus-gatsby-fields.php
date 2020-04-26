@@ -30,7 +30,15 @@ acf_add_local_field_group(
 				'type'              => 'select',
 				'instructions'      => 'By default, will use template assigned to post type.',
 				'required'          => 0,
-				'conditional_logic' => 0,
+				'conditional_logic' => [
+					[
+						[
+							'field'    => 'field_5ea39a4d0595b',
+							'operator' => '!=',
+							'value'    => '1',
+						],
+					],
+				],
 				'choices'           => [
 					'form'    => 'Form',
 					'library' => 'Library',
