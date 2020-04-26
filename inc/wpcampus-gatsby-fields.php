@@ -40,6 +40,7 @@ acf_add_local_field_group(
 					],
 				],
 				'choices'           => [
+					'home'    => 'Home',
 					'form'    => 'Form',
 					'library' => 'Library',
 				],
