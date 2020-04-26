@@ -23,9 +23,47 @@ final class WPCampus_Gatsby_Global {
 	public static function register() {
 		$plugin = new self();
 
+		// Filter the field to include form choices.
+		add_filter( 'acf/load_field/name=wpc_gatsby_form', [ $plugin, 'load_gravity_form_field_choices' ] );
+
 		// Register custom fields for the REST API.
 		add_action( 'rest_api_init', [ $plugin, 'register_rest_fields' ] );
 
+	}
+
+	/**
+	 * Modifies ACF field to include list
+	 * of choices for our Gravity forms.
+	 */
+	public function load_gravity_form_field_choices( $field ) {
+
+		// Reset choices.
+		$field['choices'] = [];
+
+		// Get list of forms.
+		$forms = class_exists( 'GFAPI' ) ? GFAPI::get_forms() : [];
+
+		if ( empty( $forms ) ) {
+			return $field;
+		}
+
+		foreach ( $forms as $form ) {
+
+			$form_id = $form['id'];
+			if ( empty( $form_id ) ) {
+				continue;
+			}
+
+			$form_title = $form['title'];
+			if ( empty( $form_title ) ) {
+				continue;
+			}
+
+			$field['choices'][ $form_id ] = $form_title;
+
+		}
+
+		return $field;
 	}
 
 	/**

@@ -43,6 +43,31 @@ acf_add_local_field_group(
 				'return_format'     => 'value',
 				'placeholder'       => '',
 			],
+			[
+				'key'               => 'field_5ea4cf759fcae',
+				'label'             => 'Select form(s)',
+				'name'              => 'wpc_gatsby_form',
+				'type'              => 'select',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => [
+					[
+						[
+							'field'    => 'field_5ea4ceec272bb',
+							'operator' => '==',
+							'value'    => 'form',
+						],
+					],
+				],
+				'choices'           => [],
+				'default_value'     => [],
+				'allow_null'        => 1,
+				'multiple'          => 1,
+				'ui'                => 1,
+				'ajax'              => 1,
+				'return_format'     => 'value',
+				'placeholder'       => '',
+			],
 		],
 		'location'              => [
 			[
